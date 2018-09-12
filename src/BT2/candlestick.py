@@ -12,7 +12,7 @@ import pytz
 
 # cryptwatch からデータを取得してローソク足を生成
 # https://qiita.com/0x0/items/883fd45c4bd3eb50fcb3
-period = 60
+period = 300
 
 # タイムゾーンを指定しなかった場合、JSTになる
 g_begin = datetime(2018,9,11,0,0,0,0)
@@ -61,5 +61,5 @@ def download(x):
 
 # cryptowatch は原則 6000件までしか取得できないので、それを超える範囲は取得できない
 # 例えば、1分足であれば4日前までしか取得できず、それ以前は null になる
-for x in range(4):
+for x in range(30):
     download(x)
