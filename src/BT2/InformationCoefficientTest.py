@@ -1,4 +1,6 @@
 import pandas as pd
+#import talib
+import numpy as np
 
 print("Information Coefficient Test")
 
@@ -20,7 +22,24 @@ df = pd.read_csv("sample.csv")
 #df.set_index('time',inplace = True)
 
 # 表示
-print(df)
+#print(df)
 
 # 最初の5行を表示
 print(df.head())
+
+# カラムを表示
+#print(df.columns)
+
+#-------------------------------------
+
+
+real = [float(x) for x in df["Close"].values]
+real = np.array(real)
+
+# 終値の差を計算
+df["Diff"] = df["Close"] - df["Close"].shift()
+# Next に次のデータの Diff を入れる(shift(-1)で１つ未来を示す)
+df["Next"] = df["Diff"].shift(-1)
+print(df.head())
+
+
