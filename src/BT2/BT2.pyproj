@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>23bba6f4-b221-4113-bcdb-eea9f436c5d1</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>candlestick.py</StartupFile>
+    <StartupFile>InformationCoefficientTest.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -24,6 +24,12 @@
   <ItemGroup>
     <Compile Include="BT2.py" />
     <Compile Include="candlestick.py" />
+    <Compile Include="InformationCoefficientTest.py">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="sample.csv" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
