@@ -24,6 +24,9 @@
   <ItemGroup>
     <Compile Include="BT2.py" />
     <Compile Include="candlestick.py" />
+    <Compile Include="ICScatterPlot.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="InformationCoefficientTest.py">
       <SubType>Code</SubType>
     </Compile>
