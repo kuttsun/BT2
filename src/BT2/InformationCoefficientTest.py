@@ -68,7 +68,7 @@ for short in range(2,4):
             # 正規化（標準化）
             # データと平均の差を標準偏差で割ると，そのデータが平均からどの程度離れているかを評価できる
             x = (matrix["histgram"] - matrix["histgram"].mean()) / matrix["histgram"].std(ddof=0)
-            # 最初のデータの次から評価する
+            # ヘッダーを除外するために１から？
             y = y[1:]
             x = x[1:]
             # 相関係数を求める
@@ -89,6 +89,7 @@ scatter = scatter.dropna()
 y = scatter["next"]
 #y = (scatter["next"] - scatter["next"].mean())/scatter["next"].std(ddof=0)
 x = (scatter["histgram"] - scatter["histgram"].mean())/scatter["histgram"].std(ddof=0)
+# ヘッダーを除外するために１から？
 y = y[1:]
 x = x[1:]
 a,b = np.polyfit(x,y,1)
