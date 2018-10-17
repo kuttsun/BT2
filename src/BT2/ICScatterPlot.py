@@ -1,11 +1,14 @@
 # 情報係数の散布図をプロット
 import sys
 import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
 
 args = sys.argv
 
 # 読み込むファイルをプログラム引数で指定
 # CSV からデータフレームを作成
+print(args[1]);
 df = pd.read_csv(args[1])
 
 # MACD(2,3,2)の散布図の作成
@@ -46,5 +49,7 @@ ax.text(0.1,0, 'y=' + str(round(a,4)) + 'x+' + str(round(b,4)),position=(4,0))
 ax.text(0.1,0, 'IC=' + str(round(correlation,4)),position=(4,40))
 # 決定係数
 ax.text(0.1,0, 'R2=' + str(round(determination,4)),position=(4,80))
+# 図の保存
+plt.savefig(args[1]+'.png')
 # 図の表示
 plt.show()
