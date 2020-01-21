@@ -46,13 +46,13 @@ y2 = a * x + b
 ax.plot(x, y2,color='red')
 # テキストの描画
 xoffset = 0
-yoffset = 900
+yoffset = 850
 # 近似式
-ax.text(0, 0, f'y = {str(round(a,4))} x + {str(round(b,4))}', position=(xoffset,yoffset))
+ax.text(xoffset, yoffset + 0, f'y = {str(round(a,4))} x + {str(round(b,4))}')
 # 相関係数
-ax.text(0, 0, 'IC =' + str(round(correlation,4)),position=(xoffset,yoffset + 80))
+ax.text(xoffset, yoffset + 100, 'IC =' + str(round(correlation,4)))
 # 決定係数
-ax.text(0, 0, 'R2 =' + str(round(determination,4)),position=(xoffset,yoffset + 160))
+ax.text(xoffset, yoffset + 200, 'R2 =' + str(round(determination,4)))
 # 図の保存
 plt.savefig(target_file+'.png')
 # 図の表示
