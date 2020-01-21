@@ -8,8 +8,10 @@ args = sys.argv
 
 # 読み込むファイルをプログラム引数で指定
 # CSV からデータフレームを作成
-print(args[1]);
-df = pd.read_csv(args[1])
+#target_file = args[1]
+target_file = "src\\BT2\\ScatterPlot_sample1.csv"
+print(target_file)
+df = pd.read_csv(target_file)
 
 # MACD(2,3,2)の散布図の作成
 #scatter = pd.DataFrame(df.next)
@@ -34,7 +36,7 @@ correlation = np.corrcoef(x, y)[0,1]
 determination = correlation ** 2
 
 # 描画領域の作成
-fig = plt.figure(figsize=(10, 10))
+fig = plt.figure(figsize=(5, 5))
 # add_subplot(111) は add_subplot(1,1,1) と同じ（？）
 ax = fig.add_subplot(111)
 # 散布図のプロット
@@ -44,12 +46,12 @@ y2 = a * x + b
 ax.plot(x, y2,color='black')
 # テキストの描画
 # 近似式
-ax.text(0.1,0, 'y=' + str(round(a,4)) + 'x+' + str(round(b,4)),position=(4,0))
+ax.text(0.1,0, 'y=' + str(round(a,4)) + 'x+' + str(round(b,4)),position=(1000,900))
 # 相関係数
-ax.text(0.1,0, 'IC=' + str(round(correlation,4)),position=(4,40))
+ax.text(0.1,0, 'IC=' + str(round(correlation,4)),position=(1000,970))
 # 決定係数
-ax.text(0.1,0, 'R2=' + str(round(determination,4)),position=(4,80))
+ax.text(0.1,0, 'R2=' + str(round(determination,4)),position=(1000,1040))
 # 図の保存
-plt.savefig(args[1]+'.png')
+plt.savefig(target_file+'.png')
 # 図の表示
 plt.show()
