@@ -9,7 +9,7 @@ args = sys.argv
 # 読み込むファイルをプログラム引数で指定
 # CSV からデータフレームを作成
 #target_file = args[1]
-target_file = "src\\BT2\\ScatterPlot_sample1.csv"
+target_file = "ScatterPlot_sample1.csv"
 print(target_file)
 df = pd.read_csv(target_file)
 
@@ -43,14 +43,16 @@ ax = fig.add_subplot(111)
 ax.scatter(x,y,alpha=0.5,color="Blue",linewidths="1")
 # 近似線の描画
 y2 = a * x + b
-ax.plot(x, y2,color='black')
+ax.plot(x, y2,color='red')
 # テキストの描画
+xoffset = 0
+yoffset = 900
 # 近似式
-ax.text(0.1,0, 'y=' + str(round(a,4)) + 'x+' + str(round(b,4)),position=(1000,900))
+ax.text(0, 0, f'y = {str(round(a,4))} x + {str(round(b,4))}', position=(xoffset,yoffset))
 # 相関係数
-ax.text(0.1,0, 'IC=' + str(round(correlation,4)),position=(1000,970))
+ax.text(0, 0, 'IC =' + str(round(correlation,4)),position=(xoffset,yoffset + 80))
 # 決定係数
-ax.text(0.1,0, 'R2=' + str(round(determination,4)),position=(1000,1040))
+ax.text(0, 0, 'R2 =' + str(round(determination,4)),position=(xoffset,yoffset + 160))
 # 図の保存
 plt.savefig(target_file+'.png')
 # 図の表示
